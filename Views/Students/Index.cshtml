@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-controller="Students" asp-action="Create" class="my-3 btn btn-outline-success">New</a>
+
+@if(Model.Any()){
+
+<h1>Students</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Name)</td>
+            <td>@Html.DisplayNameFor(model => model.Email)</td>
+            <td>@Html.DisplayNameFor(model => model.Password)</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach(var student in Model)
+            {
+                <tr>
+                    <td>@student.Name</td>
+                    <td>@student.Email</td>
+                    <td>@student.Password</td>
+                    <td>
+                        <a asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                        <a asp-controller="Students" asp-action="Delete" asp-route-id="@student.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info fw-bolder">No Data Found</div>
+}
+

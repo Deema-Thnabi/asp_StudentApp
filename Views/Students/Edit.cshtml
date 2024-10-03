@@ -1,0 +1,25 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Edit Student Information</h1>
+<form asp-controller="Students" asp-action="Update">
+    @Html.HiddenFor(Model => Model.Id)
+    <div class="my-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="my-3">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+
+    <div class="my-3">
+        <label asp-for="Password"></label>
+        <input asp-for="Password" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">Add</button>
+</form>
+
